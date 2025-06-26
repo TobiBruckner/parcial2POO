@@ -3,6 +3,7 @@ package UI;
 
 
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 import Logica.Admin;
@@ -17,7 +18,10 @@ public class Main {
 		Cuenta.sobrecargaDeCuentas();
 		int opcion;
 		do {
-			opcion = JOptionPane.showOptionDialog(null, "Elija tipo de usuario", null, 0, 0, null, OpcionesUsuario.values(), OpcionesUsuario.values()[0]);
+			ImageIcon icono3 = new ImageIcon(Main.class.getResource("/UI/banco.png"));
+			opcion = JOptionPane.showOptionDialog(null, "Bienvenido al banco, elija su tipo de usuario",null, JOptionPane.DEFAULT_OPTION,
+				    JOptionPane.INFORMATION_MESSAGE,
+				    icono3, OpcionesUsuario.values(), OpcionesUsuario.values()[0]);
 		
 			switch (opcion) {
 			case 0:

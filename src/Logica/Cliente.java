@@ -2,8 +2,10 @@ package Logica;
 import java.time.LocalDate;
 import java.util.LinkedList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-
+import javax.swing.ImageIcon;
+import javax.swing.ImageIcon;
 public class Cliente extends Usuario{
 	//ATRIBUTOS
 	static LinkedList<Cliente> clientes= new LinkedList<Cliente>();
@@ -33,6 +35,15 @@ public class Cliente extends Usuario{
 	//MÈTODOS
 	@Override
 	public String login() {
+		if (this.getMail() == null || this.getMail().isEmpty()) {
+	        JOptionPane.showMessageDialog(null, "Debe ingresar un correo electrónico.");
+	        return "Correo vacío";
+	    }
+
+	    if (this.getContrasenia() == null || this.getContrasenia().isEmpty()) {
+	        JOptionPane.showMessageDialog(null, "Debe ingresar una contraseña.");
+	        return "Contraseña vacía";
+	    }
 		for (Cliente cliente : clientes) {
 			if (cliente.getMail().equals(this.getMail()) && cliente.getContrasenia().equals(this.getContrasenia())) {
 				
@@ -43,12 +54,16 @@ public class Cliente extends Usuario{
 			
 		}
 		
-		
-		return "";
+		 JOptionPane.showMessageDialog(null, "Correo o contraseña incorrectos.");
+		    return "No encontrado";
 	}
 	@Override
 	public void menu() {
-		JOptionPane.showOptionDialog(null, "", "", 0, 0, null, OpcionesCliente.values(), OpcionesCliente.values()[0]);
+		ImageIcon icono2 = new ImageIcon(getClass().getResource("/UI/cliente.png"));
+		JOptionPane.showOptionDialog(null, "Menú de cliente", "Elija una opción", 
+				JOptionPane.DEFAULT_OPTION,
+			    JOptionPane.INFORMATION_MESSAGE,
+			    icono2, OpcionesCliente.values(), OpcionesCliente.values()[0]);
 	}
 	public static void sobrecarga() {
 		

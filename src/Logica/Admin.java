@@ -1,6 +1,7 @@
 package Logica;
 import java.util.LinkedList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class Admin extends Usuario{
@@ -38,9 +39,12 @@ public class Admin extends Usuario{
 
 	@Override
 	public void menu() {
+		ImageIcon icono1 = new ImageIcon(getClass().getResource("/UI/admin.png"));
 			int opcion;
 			do {
-				opcion = JOptionPane.showOptionDialog(null, "Menú admin", "Seleccione una opción", 0, 0, null, OpcionesAdmin.values(), OpcionesAdmin.values()[0]);
+				opcion = JOptionPane.showOptionDialog(null, "Menú admin", "Seleccione una opción", JOptionPane.DEFAULT_OPTION,
+					    JOptionPane.INFORMATION_MESSAGE,
+					    icono1, OpcionesAdmin.values(), OpcionesAdmin.values()[0]);
 
 				switch (opcion) {
 				case 0:

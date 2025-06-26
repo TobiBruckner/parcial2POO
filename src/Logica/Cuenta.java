@@ -3,6 +3,7 @@ package Logica;
 import java.time.LocalDate;
 import java.util.LinkedList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class Cuenta {
@@ -99,7 +100,10 @@ public class Cuenta {
 	public void menuCuenta() {
 		int opcion;
 		do {
-			opcion = JOptionPane.showOptionDialog(null, "", "", 0, 0, null, OpcionesCliente.values(), OpcionesCliente.values()[0]);
+			ImageIcon icono2 = new ImageIcon(getClass().getResource("/UI/cliente.png"));
+			opcion = JOptionPane.showOptionDialog(null, "Menú de cliente", "",JOptionPane.DEFAULT_OPTION,
+				    JOptionPane.INFORMATION_MESSAGE,
+				    icono2, OpcionesCliente.values(), OpcionesCliente.values()[0]);
 
 			switch (opcion) {
 			case 0:
